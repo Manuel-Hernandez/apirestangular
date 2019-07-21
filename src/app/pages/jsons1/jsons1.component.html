@@ -1,0 +1,12 @@
+<h1>http://www.somaku.com/posts</h1>
+
+<div *ngIf="undefined === restItems">Loading...</div>
+
+<div *ngIf="undefined !== restItems">
+  <ul>
+    <li *ngFor="let post of restItems" [innerHTML]="post.title"
+        (click)="selectedContent='<h1>' + post.title + '</h1>' + post.body">
+    </li>
+  </ul>
+</div>
+<div [innerHTML]="selectedContent"></div>

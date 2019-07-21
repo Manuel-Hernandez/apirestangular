@@ -1,0 +1,14 @@
+<h1>XML SERVICE</h1>
+
+<div *ngIf="undefined === restItems">Loading...</div>
+
+<div *ngIf="undefined !== restItems">
+  <ul>
+    <li *ngFor="let post of restItems | paginate: { itemsPerPage: 10, currentPage: p }" 
+         [innerHTML]="post.Title"
+        (click)="selectedContent='<h1>' + post.Title + '</h1>' + post.Description" href="#">
+    </li>
+  </ul>
+</div>
+<div [innerHTML]="selectedContent"></div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

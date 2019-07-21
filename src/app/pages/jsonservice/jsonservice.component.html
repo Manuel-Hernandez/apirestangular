@@ -1,0 +1,10 @@
+<h2> pagina de prurba:  https://jsonplaceholder.typicode.com/todos</h2>
+<div *ngIf="undefined === respuesta">Loading...</div>
+<div *ngIf="undefined !== respuesta">
+  <ul>
+    <li *ngFor="let res of respuesta" [innerHTML]="res.title"
+    (click)="selectedContent='<h1>' + res.id + '</h1>' + res.title">
+    </li>
+  </ul>
+</div>
+<div [innerHTML]="selectedContent">hola</div>
